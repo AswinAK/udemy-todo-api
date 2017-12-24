@@ -20,6 +20,12 @@ app.post('/todos',(req,res)=>{
     },(err)=>{
         res.send(err);
     });
+});
+
+app.get('/todos',(req,res)=>{
+    ToDo.find().then((todos)=>{
+        res.send({todos});
+    })
 })
 
 app.listen(3000,()=>{
